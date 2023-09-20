@@ -1,5 +1,6 @@
 package com.example.gmailapp
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -29,14 +30,25 @@ class EmailAdapter(private val emails: List<Email>) :  RecyclerView.Adapter<Emai
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        val context = parent.context
+        val inflater = LayoutInflater.from(context)
+        // Inflate the custom layout
+        val contactView = inflater.inflate(R.layout.email_item, parent, false)
+        // Return a new holder instance
+        return ViewHolder(contactView)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return emails.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        // Get the data model based on position
+        val email = emails.get(position)
+        // Set item views based on views and data model
+        holder.senderView.text = email.sender
+        holder.titleView.text = email.title
+        holder.summaryView.text = email.summary
     }
+
 }
