@@ -1,5 +1,6 @@
 package com.example.gmailapp
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,7 @@ class EmailAdapter(private val emails: List<Email>) :  RecyclerView.Adapter<Emai
             summaryView= itemView.findViewById(R.id.emailsum)
             dateView= itemView.findViewById(R.id.date)
             trollView= itemView.findViewById(R.id.troll)
+
         }
     }
 
@@ -55,6 +57,9 @@ class EmailAdapter(private val emails: List<Email>) :  RecyclerView.Adapter<Emai
         holder.summaryView.text = email.summary
         holder.dateView.text= email.date
 
+        holder.itemView.setOnClickListener {
+            holder.senderView.setTextColor(Color.parseColor("#00FFFF"))
+        }
     }
 
 }
