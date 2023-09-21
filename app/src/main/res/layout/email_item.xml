@@ -16,7 +16,6 @@
         android:fontFamily="sans-serif-condensed"
         android:text="Sender"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/troll"
         app:layout_constraintTop_toTopOf="parent" />
 
